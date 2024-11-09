@@ -1,0 +1,65 @@
+### AD - GET ALL
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "query": "query QueryAllAds { getAllAds { title createdAt category { name } tags { name } } }"
+}
+
+### AD - POST
+
+POST http://localhost:4000/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MjU2MzU4Njl9.O8_TakhrvnCUPQ1cs6FUgfd3nqScdjaO1WHHICj7ZS0
+
+{ 
+  "query": "mutation { publishAd(adData: { title: \"Nouvelle annonce ajoutée\", price: 100, category: \"Autres\" }) {id}}"
+}
+
+### AD - GET BY ID
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "query": "query QueryAd { getAd(id: 1) { title createdAt category { name } tags { name } } }"
+}
+
+### USER - GET ALL
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "query": "query QueryAllUsers { getAllUsers { email role passwordHashed } }"
+}
+
+### USER REGISTER
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "query": "mutation { register(userData: { email: \"admin@gmail.com\", role: \"ADMIN\", password: \"admin\" }) {id} }"
+}
+
+### USER GET BY ID
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "query": "query QueryUser { getUser(id: 1) { email role passwordHashed } }"
+}
+
+### USER LOGIN
+
+POST http://localhost:4000/
+Content-Type: application/json
+
+{
+    "query": "query QueryUser { login(userData: { email: \"admin@gmail.com\", password: \"admin\" }) }"
+}
+
+
